@@ -1,6 +1,3 @@
-//#include "FreeRTOS.h"
-//#include "task.h"
-//#include "queue.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -122,22 +119,8 @@ int main(void)
 	while(1)
 	{
 	    MADC_vGetReading();
-//        L_byte = (u8)(reading & 0xff);
-//        M_byte = (u8)((reading >> 8) & 0x0f);
-//	    MUART_vTransmitByteSynch(UART2,L_byte);
-//	    MSTK_vDelayms(1000);
-//        MUART_vTransmitByteSynch(UART2,M_byte);
-//        MSTK_vDelayms(1000);
-//      MUART_vTransmitByteSynch(UART2,(u8)reading);
-//      MSTK_vDelayms(1000);
-//		u8 Rec_string[MAX_REC_STR_SIZE];
-////		u8 Rec_byte;
-//		MUART_vReceiveStringSynchNonBlocking(UART2,Rec_string);
-//		MUART_vTransmitByteSynch(UART2, 'A');
-//		Rec_byte = MUART_u8ReceiveByteSynchNonBlocking(UART2);
-//		MSTK_vDelayms(2000);
-////		MUART_vTransmitByteAsynch(UART2, Rec_byte);
-        cJSON* Rec_json_object;
+
+            cJSON* Rec_json_object;
 
 
 	    if(Temp_Sensor_Node.Status == Node_Enabled)
@@ -188,10 +171,8 @@ int main(void)
 
 		const char* Rec_string[MAX_REC_STR_SIZE];
 		MUART_vReceiveStringSynchNonBlocking(UART2,(u8*)Rec_string);
-//		MSTK_vDelayms(1000);
-//		MUART_vTransmitString(UART2,(u8*)Rec_string);
+
 		MSTK_vDelayms(1000);
-//		MUART_vTransmitByteSynch(UART2, 10);
         Rec_json_object = cJSON_Parse((const char*)(Rec_string));
         if(Rec_json_object == NULL)
         {
@@ -253,7 +234,6 @@ int main(void)
         		if(cJSON_IsString(node_id))
         		{
         			long node_long = strtol((const char*)(node_id->valuestring),NULL,16);
-//        			MUART_vTransmitByteAsynch(UART2, (u8)node_long );
 
         			if((u8)node_long == Temp_Sensor_ID)
         			{
@@ -291,7 +271,6 @@ int main(void)
         		{
         			long node_long = strtol((const char*)(node_id->valuestring),NULL,16);
         			long data_long = strtol((const char*)(data->valuestring),NULL,10);
-//        			MUART_vTransmitByteAsynch(UART2, (u8)node_long );
 
         			if((u8)node_long == Relay_ID)
         			{
@@ -331,7 +310,6 @@ int main(void)
         		if(cJSON_IsString(node_id))
         		{
         			long node_long = strtol((const char*)(node_id->valuestring),NULL,16);
-//        			MUART_vTransmitByteAsynch(UART2, (u8)node_long );
 
         			if((u8)node_long == Temp_Sensor_ID)
         			{
@@ -385,29 +363,13 @@ int main(void)
             			}
             		}
         	}
-//    		cJSON_free(Rec_string);
-//    	    cJSON_Delete(Rec_json_object);
         }
 	}
 }
 
 void ADC_IRQHandler(void)
 {
-//	if (counter == 0)
-//	{
-//      adc_lm35_reading = reading;
-//      counter = 1;
-//	}
-//	else
-//	{
-//		adc_ldr_reading = reading;
-//		counter = 0;
-//	}
-//    reading = MADC_vGetReading();
-//    L_byte = ((u8)(reading & 0x00ff));
-//    MUART_vTransmitByteAsynch(UART2,L_byte);
-//    MSTK_vDelayms(1000);
-//    MUART_vTransmitByteAsynch(UART2,L_byte);
+
 }
 
 
