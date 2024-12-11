@@ -2,7 +2,7 @@
  * LM35_Prog.c
  *
  *  Created on: Dec 7, 2024
- *      Author: Dell
+ *      Author: Mo'men
  */
 
 
