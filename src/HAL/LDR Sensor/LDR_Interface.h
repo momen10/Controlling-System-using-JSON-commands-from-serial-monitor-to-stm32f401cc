@@ -2,7 +2,7 @@
  * LM35_Interface.h
  *
  *  Created on: Dec 7, 2024
- *      Author: Dell
+ *      Author: Mo'men
  */
 
 #ifndef HAL_LM35_SENSOR_LM35_INTERFACE_H_
